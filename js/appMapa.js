@@ -60,7 +60,7 @@ var map = L.map('map', {
     }
 
 });
-map.addControl(new L.Control.Fullscreen());
+
 mapasBase = {
     "OpenTopoMap": OpenTopoMap,
     "OpenStreetMap_Mapnik": OpenStreetMap_Mapnik,
