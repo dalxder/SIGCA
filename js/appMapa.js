@@ -75,25 +75,24 @@ mapasBase = {
 
 
 
-
-
-
-$.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
-    $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (torresEAB_data) {
-        estacionesSIH = L.geoJson(estSIH,
-                { filter: function(feature, layer) {
-                return feature.properties.Cat === "PVG";
-            },
-            pointToLayer: function (feature, latlng) {
+function filtroTipo(feature, layer) {
+                return feature.properties.Cat === "PVG"; }
+function layer(feature, latlng) {
                         return L.marker(latlng, {
                             icon: myIcon
                         });
-                    },
-                    onEachFeature: function (feature, layer) {
+                    }
+function ventanaEmergente(feature, layer) {
                         layer.bindPopup(feature.properties.Codigo + '\n "Estación"' + feature.properties.Estacion + ' ' + feature.geometry.coordinates +
                                 "#{redireccion.text}");
                     }
-                });
+                
+$.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
+    $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (torresEAB_data) {
+        estacionesSIH = L.geoJson(estSIH,{
+            filter: filtroTipo,
+            pointToLayer: layer,
+            onEachFeature:ventanaEmergente });
         var markers = L.markerClusterGroup();
         markers.addLayer(estacionesSIH);
 
@@ -101,10 +100,7 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/esta
         var estacSIH = L.layerGroup([markers]);
 
         torresEAB = L.geoJson(torresEAB_data,
-                {
-                    onEachFeature: function (feature, layer) {
-                        layer.bindPopup("Nombre: " + feature.properties.Name + "<br/>Descripción: " + feature.properties.FolderPath + "<br/>Coordenadas: " + feature.geometry.coordinates);
-                    }
+                {onEachFeature:ventanaEmergente
                 });
         var markers2 = L.markerClusterGroup();
         markers2.addLayer(torresEAB);
