@@ -107,7 +107,7 @@ mapasBase = {
 
 
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
-    $.getJSON("/SIGCA/recursos/data/Torres EAB.geojson", function (torresEAB_data) {
+    $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (torresEAB_data) {
         estacionesSIH = L.geoJson(estSIH,
                 { filter: function(feature, layer) {
                 return feature.properties.Cat === "PVG";
