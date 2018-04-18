@@ -75,8 +75,8 @@ mapasBase = {
 
 
 
-function filtroTipo(feature, layer) {
-                return feature.properties.Cat === "PVG"; }
+function filtroTipo(feature, layer,Tipo) {
+                return feature.properties.Cat === Tipo; }
 function layer(feature, latlng) {
                         return L.marker(latlng, {
                             icon: myIcon
@@ -90,7 +90,7 @@ function ventanaEmergente(feature, layer) {
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
     $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (torresEAB_data) {
         estacionesSIH = L.geoJson(estSIH,{
-            filter: filtroTipo,
+            filter: filtroTipo("PVG"),
             pointToLayer: layer,
             onEachFeature:ventanaEmergente });
         var markers = L.markerClusterGroup();
