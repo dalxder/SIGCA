@@ -52,8 +52,15 @@ var map = L.map('map', {
     center: [4.628211, -74.091638],
     zoom: 13,
     layers: [googleSat]
-});
+    ,
+    fullscreenControl: true,
+    // OR
+    fullscreenControl: {
+        pseudoFullscreen: false // if true, fullscreen to page width and height
+    }
 
+});
+map.addControl(new L.Control.Fullscreen());
 mapasBase = {
     "OpenTopoMap": OpenTopoMap,
     "OpenStreetMap_Mapnik": OpenStreetMap_Mapnik,
@@ -120,4 +127,5 @@ L.easyButton('glyphicon-star', function (btn, map) {
     var chuza = [4.5522, -73.7191];
     map.setView(chuza, 10);
 }).addTo(map);
+
     
