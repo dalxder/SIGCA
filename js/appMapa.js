@@ -1,10 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-var myIcon = L.icon({
+    var myIcon = L.icon({
     iconUrl: "https://image.flaticon.com/icons/svg/181/181508.svg",
     iconSize: [10, 10]
 });
@@ -78,7 +72,7 @@ mapasBase = {
 
 
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
-    $.getJSON("/SIGCA/recursos/data/Torres EAB.geojson", function (torresEAB_data) {
+    $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (torresEAB_data) {
         estacionesSIH = L.geoJson(estSIH,
                 { filter: function(feature, layer) {
                 return feature.properties.Cat === "PVG";
@@ -126,3 +120,4 @@ L.easyButton('glyphicon-star', function (btn, map) {
     var chuza = [4.5522, -73.7191];
     map.setView(chuza, 10);
 }).addTo(map);
+    
