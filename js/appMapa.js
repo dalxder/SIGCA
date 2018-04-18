@@ -115,7 +115,19 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/esta
 
         L.control.layers(mapasBase, capas).addTo(map);
         L.control.scale().addTo(map);
-
+ // The JavaScript below is new
+        $("#others").click(function() {
+            map.addLayer(estacSIH)
+            map.removeLayer(torresEABgrupo)
+        });
+        $("#cafes").click(function() {
+            map.addLayer(torresEABgrupo)
+            map.removeLayer(estacSIH)
+        });
+        $("#allbus").click(function() {
+            map.addLayer(estacSIH)
+            map.addLayer(torresEABgrupo)
+            });
 
     });
 });
