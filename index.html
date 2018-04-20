@@ -27,24 +27,63 @@
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
     <script src="js/mapsBase.js"></script> 
+    <style type="text/css">
+        .btn-primary{
+            background-color:red;
+        }
+    </style>
+  <!--
+    <style type="text/css">
+        .active{
+    background:red;
+}
+button.btn:active{
+    background:red;
+}
+
+    </style>-->
 </head>
 <body>
     <!-- Prototipo -->
     <div >
-<h1> Sistema de informacion de la  gestión del ciclo del agua</h1>
+<h1> Sistema de información de la  gestión del ciclo del agua</h1>
     </div>
                 <div>
                     <div id="map" align="justify" style=" height: 550px; width: 100%"></div>
                 </div> 
     <script src="js/appMapa.js"></script> 
             <div class="btn-group">
-        <button type="button" id="allbus" class="btn btn-success">PVG</button>
-        <button type="button" id="others" class="btn btn-primary">CO</button>
-        <button type="button" id="cafes" class="btn btn-danger">LM</button>
+        <button type="button" id="Todo" class="btn btn-primary">Todo</button>-->
+        <button type="button" id="seriesSIH" class="btn btn-primary" >Series SIH</button>
+        <button type="button" id="basica2018" class="btn btn-primary">Hidrología Básica 2018</button>
     </div>
-    
-    
+    <script>/*
+        $("#seriesSIH").click(function(){
+            $("#basica2018").removeClass('active');
+            $(this).toggleClass('active'); 
+            });
+            */
 
-   
+$("button").click(function(){
+    console.log($(this).css("background-color"));
+
+
+    if(this.id=="Todo"){
+        $("button").css('background-color','red');
+        $(this).css('background-color', 'green'); 
+    }
+    else{
+        if($(this).css("background-color")=="rgb(255, 0, 0)"){
+            $(this).css('background-color', 'green'); 
+        }else{
+            $(this).css('background-color', 'red');
+        }
+        $("#Todo").css('background-color','red');
+    }
+}
+);
+
+
+    </script>
     </body>
 </html>
