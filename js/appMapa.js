@@ -37,7 +37,9 @@ function layer(feature, latlng) {
                         });
                     }
 function ventanaEmergente(feature, layer) {
-                        layer.bindPopup(feature.properties.COD. + '\n "Estación"' + feature.properties.Estacion + ' ' + feature.geometry.coordinates +
+    //COD.	ZONA	CUENCA	NOMBRE DE LA ESTACIÓN	CATEGORIA	TIPO	MUNICIPIO	AUTORIDAD AMBIENTAL	Equipamento
+    layer.bindPopup('<b>Codigo: '+feature.properties.COD.+'</br></b>' +
+                    'Estación' + feature.properties."NOMBRE DE LA ESTACIÓN" + ' ' + feature.geometry.coordinates +
                                 "#{redireccion.text}");
                     }
                 
