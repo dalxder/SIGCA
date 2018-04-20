@@ -52,9 +52,8 @@ function ventanaEmergente(feature, layer) {
 $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/EstacionesSeriesHidrol%C3%B3gicas.geojson", function (estSIH) {
     $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/EstacionesBasica2018.geojson", function (EstacionesBasica2018) {
         
-/*estaciones SIH series hidrológicas*/
+/*estaciones SIH series hidrológicas filter: filtroTipo,*/
         estacionesSIH = L.geoJson(estSIH,{
-            filter: filtroTipo,
             pointToLayer: layer,
             onEachFeature:ventanaEmergente });
         var markers = L.markerClusterGroup().addLayer(estacionesSIH);
