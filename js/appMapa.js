@@ -43,43 +43,43 @@ function ventanaEmergente(feature, layer) {
                 
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
     $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/EstacionesBasica2018.geojson", function (EstacionesBasica2018) {
+        
+/*estaciones SIH series hidrológicas*/
         estacionesSIH = L.geoJson(estSIH,{
             filter: filtroTipo,
             pointToLayer: layer,
             onEachFeature:ventanaEmergente });
-        var markers = L.markerClusterGroup();
-        markers.addLayer(estacionesSIH);
+        var markers = L.markerClusterGroup().addLayer(estacionesSIH);
         map.fitBounds(markers.getBounds());
         var estacSIH = L.layerGroup([markers]);
-
+        
+/*estaciones hidrología Básica*/
         estacionesBasica2018 = L.geoJson(EstacionesBasica2018,
                 {onEachFeature:ventanaEmergente
                 });
-        var markers2 = L.markerClusterGroup();
-        markers2.addLayer(estacionesBasica2018);
-
+        var markers2 = L.markerClusterGroup().addLayer(estacionesBasica2018);
         map.fitBounds(markers2.getBounds());
-        var estacionesBasica2018_Gr = L.layerGroup([markers2]);
+        var estBasica2018= L.layerGroup([markers2]);
 
         var capas = {
             'Estaciones SIH': estacSIH,
-            'Estaciones Básica 2018': estacionesBasica2018
+            'Estaciones Básica 2018': estBasica2018
         };
-
+// Agregar Controles de mapa
         L.control.layers(mapasBase, capas).addTo(map);
         L.control.scale().addTo(map);
  // The JavaScript below is new
         $("#others").click(function() {
             map.addLayer(estacSIH)
-            map.removeLayer(estacionesBasica2018_Gr )
+            map.removeLayer(estBasica2018 )
         });
         $("#cafes").click(function() {
-            map.addLayer(estacionesBasica2018_Gr)
+            map.addLayer(estBasica2018)
             map.removeLayer(estacSIH)
         });
         $("#allbus").click(function() {
             map.addLayer(estacSIH)
-            map.addLayer(estacionesBasica2018_Gr )
+            map.addLayer(estBasica2018 )
             });
 
     });
