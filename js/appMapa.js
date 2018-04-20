@@ -37,7 +37,7 @@ function layer(feature, latlng) {
                         });
                     }
 function ventanaEmergente(feature, layer) {
-                        layer.bindPopup(feature.properties.Codigo + '\n "Estación"' + feature.properties.Estacion + ' ' + feature.geometry.coordinates +
+                        layer.bindPopup(feature.properties.COD. + '\n "Estación"' + feature.properties.Estacion + ' ' + feature.geometry.coordinates +
                                 "#{redireccion.text}");
                     }
                 
