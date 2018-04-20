@@ -63,7 +63,7 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/esta
 
         var capas = {
             'Estaciones SIH': estacSIH,
-            'Torres EAB': torresEABgrupo
+            'Estaciones Básica 2018': torresEABgrupo
         };
 
         L.control.layers(mapasBase, capas).addTo(map);
