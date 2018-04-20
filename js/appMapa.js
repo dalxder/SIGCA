@@ -49,8 +49,8 @@ function ventanaEmergente(feature, layer) {
                     '<b>EQUIPAMENTO:</b></br> '+ feature.properties["Equipamento"]);
                     }
                 
-$.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
-    $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/EstacionesBasica2018.geojson", function (EstacionesBasica2018) {
+$.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/EstacionesSeriesHidrol%C3%B3gicas.geojson", function (estSIH) {
+    $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/EstacionesBasica2018.geojson", function (EstacionesBasica2018) {
         
 /*estaciones SIH series hidrológicas*/
         estacionesSIH = L.geoJson(estSIH,{
