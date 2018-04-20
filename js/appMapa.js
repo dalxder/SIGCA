@@ -89,7 +89,7 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/E
             map.addLayer(estacSIH)
             map.addLayer(estBasica2018 )
             });
-        $("#cafes").css("background","red");
+        $("#cafes").css("background","black");
 
     });
 });
