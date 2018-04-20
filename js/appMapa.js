@@ -39,14 +39,14 @@ function layer(feature, latlng) {
 function ventanaEmergente(feature, layer) {
     //COD.	ZONA	CUENCA	NOMBRE DE LA ESTACIÓN	CATEGORIA	TIPO	MUNICIPIO	AUTORIDAD AMBIENTAL	Equipamento
     layer.bindPopup('<b>CÓDIGO: ' + feature.properties["COD."] + '</br></b>' + 
-                    'NOMBRE DE LA ESTACIÓN: ' + feature.properties["NOMBRE DE LA ESTACIÓN"] +
-                    'ZONA: '+  feature.properties["ZONA"] +
-                    'CUENCA: '+ feature.properties["CUENCA"] +
-                    'CATEGORIA: ' + feature.properties["CATEGORIA"] +
-                    'TIPO: '+ feature.properties["TIPO"] +
-                    'MUNICIPIO: ' +feature.properties["MUNICIPIO"] +
-                    'AUTORIDAD AMBIENTAL: '+ feature.properties["AUTORIDAD AMBIENTAL"] +
-                    'EQUIPAMENTO: '+ feature.properties["Equipamento"]);
+                    '<b>NOMBRE DE LA ESTACIÓN:</b> ' + feature.properties["NOMBRE DE LA ESTACIÓN"] +'</BR>'+
+                    '<b>ZONA:</b> '+  feature.properties["ZONA"] +'</BR>'+
+                    '<b>CUENCA:</b> '+ feature.properties["CUENCA"] +'</BR>'+
+                    '<b>CATEGORIA:</b> ' + feature.properties["CATEGORIA"] +'</BR>'+
+                    '<b>TIPO:</b> '+ feature.properties["TIPO"] +'</BR>'+
+                    '<b>MUNICIPIO:</b> ' +feature.properties["MUNICIPIO"] +'</BR>'+
+                    '<b>AUTORIDAD AMBIENTAL:</b> '+ feature.properties["AUTORIDAD AMBIENTAL"] +'</BR>'+
+                    '<b>EQUIPAMENTO:</b></br> '+ feature.properties["Equipamento"]);
                     }
                 
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
