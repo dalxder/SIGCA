@@ -29,8 +29,6 @@ mapasBase = {
     "googleSat": googleSat
 };
 
-
-
 function filtroTipo(feature, layer) {
                 return feature.properties.Cat === "PVG"; }
 function layer(feature, latlng) {
@@ -44,25 +42,24 @@ function ventanaEmergente(feature, layer) {
                     }
                 
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
-    $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (torresEAB_data) {
+    $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/EstacionesBasica2018.geojson", function (EstacionesBasica2018) {
         estacionesSIH = L.geoJson(estSIH,{
             filter: filtroTipo,
             pointToLayer: layer,
             onEachFeature:ventanaEmergente });
         var markers = L.markerClusterGroup();
         markers.addLayer(estacionesSIH);
-
         map.fitBounds(markers.getBounds());
         var estacSIH = L.layerGroup([markers]);
 
-        torresEAB = L.geoJson(torresEAB_data,
+        estacionesBasica2018 = L.geoJson(EstacionesBasica2018,
                 {onEachFeature:ventanaEmergente
                 });
         var markers2 = L.markerClusterGroup();
-        markers2.addLayer(torresEAB);
+        markers2.addLayer(estacionesBasica2018);
 
         map.fitBounds(markers2.getBounds());
-        var torresEABgrupo = L.layerGroup([markers2]);
+        var estacionesBasica2018_Gr = L.layerGroup([markers2]);
 
         var capas = {
             'Estaciones SIH': estacSIH,
@@ -74,15 +71,15 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/esta
  // The JavaScript below is new
         $("#others").click(function() {
             map.addLayer(estacSIH)
-            map.removeLayer(torresEABgrupo)
+            map.removeLayer(estacionesBasica2018_Gr )
         });
         $("#cafes").click(function() {
-            map.addLayer(torresEABgrupo)
+            map.addLayer(estacionesBasica2018_Gr)
             map.removeLayer(estacSIH)
         });
         $("#allbus").click(function() {
             map.addLayer(estacSIH)
-            map.addLayer(torresEABgrupo)
+            map.addLayer(estacionesBasica2018_Gr )
             });
 
     });
