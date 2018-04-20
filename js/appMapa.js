@@ -38,7 +38,15 @@ function layer(feature, latlng) {
                     }
 function ventanaEmergente(feature, layer) {
     //COD.	ZONA	CUENCA	NOMBRE DE LA ESTACIÓN	CATEGORIA	TIPO	MUNICIPIO	AUTORIDAD AMBIENTAL	Equipamento
-    layer.bindPopup('<b>Codigo: ' + feature.properties["COD."] + '</br></b>' + 'Estación' + feature.properties["NOMBRE DE LA ESTACIÓN"] + ' ' + feature.geometry.coordinates);
+    layer.bindPopup('<b>CÓDIGO: ' + feature.properties["COD."] + '</br></b>' + 
+                    'NOMBRE DE LA ESTACIÓN: ' + feature.properties["NOMBRE DE LA ESTACIÓN"] +
+                    'ZONA: '+  feature.properties["ZONA"] +
+                    'CUENCA: '+ feature.properties["CUENCA"] +
+                    'CATEGORIA: ' + feature.properties["CATEGORIA"] +
+                    'TIPO: '+ feature.properties["TIPO"] +
+                    'MUNICIPIO: ' +feature.properties["MUNICIPIO"] +
+                    'AUTORIDAD AMBIENTAL: '+ feature.properties["AUTORIDAD AMBIENTAL"] +
+                    'EQUIPAMENTO: '+ feature.properties["Equipamento"]);
                     }
                 
 $.getJSON("https://raw.githubusercontent.com/dalxder/Sih_EAB/master/GeoJson/estaciones_bogota.geojson", function (estSIH) {
