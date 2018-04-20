@@ -88,7 +88,8 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/E
         $("#allbus").click(function() {
             map.addLayer(estacSIH)
             map.addLayer(estBasica2018 )
-            }).bgcolor="green";
+            });
+        $("#cafes").css("background","red");
 
     });
 });
