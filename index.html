@@ -93,7 +93,9 @@ $("button").click(function(){
   }).addTo(map);
         
 
-
+          L.esri.featureLayer({
+    url: 'https://www.acueducto.com.co/wassigue/arcgis/rest/services/EstacionesHidrometeorologicas/MapServer/2'
+  }).addTo(map);
     </script>
     </body>
 </html>
