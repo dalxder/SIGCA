@@ -160,7 +160,9 @@ map.on("overlayadd overlayremove", function (event) {
 
     }
     if (event.type === "overlayremove"){
-        $("#DITG").css('background-color', 'red')
+            if (layer === meteo){
+                $("#DITG").css('background-color', 'red')
+            }
     }
 
 });
