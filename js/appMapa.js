@@ -1,6 +1,6 @@
     var myIcon = L.icon({
-    iconUrl: "https://image.flaticon.com/icons/svg/181/181508.svg",
-    iconSize: [10, 10]
+    iconUrl: "http://www.acueducto.com.co/wassigue1/storymapfotos/Otros/averde.gif",
+    iconSize: [25, 25]
 });
 
 
@@ -35,8 +35,9 @@ function layer(feature, latlng) {
                             icon: myIcon
                         });
                     }
+
 function ventanaEmergente(feature, layer) {
-    //COD.	ZONA	CUENCA	NOMBRE DE LA ESTACIÓN	CATEGORIA	TIPO	MUNICIPIO	AUTORIDAD AMBIENTAL	Equipamento
+    //COD.  ZONA    CUENCA  NOMBRE DE LA ESTACIÓN   CATEGORIA   TIPO    MUNICIPIO   AUTORIDAD AMBIENTAL Equipamento
     layer.bindPopup('<b>CÓDIGO: ' + feature.properties["COD."] + '</br></b>' + 
                     '<b>NOMBRE DE LA ESTACIÓN:</b> ' + feature.properties["NOMBRE DE LA ESTACIÓN"] +'</BR>'+
                     '<b>ZONA:</b> '+  feature.properties["ZONA"] +'</BR>'+
@@ -46,6 +47,13 @@ function ventanaEmergente(feature, layer) {
                     '<b>MUNICIPIO:</b> ' +feature.properties["MUNICIPIO"] +'</BR>'+
                     '<b>AUTORIDAD AMBIENTAL:</b> '+ feature.properties["AUTORIDAD AMBIENTAL"] +'</BR>'+
                     '<b>EQUIPAMENTO:</b></br> '+ feature.properties["Equipamento"]);
+                    };
+
+function ventanaEmergenteSIH(feature, layer) {
+    //COD.	ZONA	CUENCA	NOMBRE DE LA ESTACIÓN	CATEGORIA	TIPO	MUNICIPIO	AUTORIDAD AMBIENTAL	Equipamento
+    layer.bindPopup('<b>CÓDIGO: </b>' + feature.properties["Codigo"] + '</br>'+
+                    '<b>NOMBRE DE LA ESTACIÓN:</b> ' + feature.properties["Estaci�n"]+'</br>' + 
+                    '<b>CATEGORIA: </b> ' + feature.properties["Categor�a"]);
                     };
 
     var ppTempMeteo = "<b>Código: </b>{COD_ESTACION}</br>"+
@@ -71,7 +79,7 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/E
 /*estaciones SIH series hidrológicas filter: filtroTipo,*/
         estacionesSIH = L.geoJson(estSIH,{
             pointToLayer: layer,
-            onEachFeature:ventanaEmergente });
+            onEachFeature:ventanaEmergenteSIH });
         var markers = L.markerClusterGroup().addLayer(estacionesSIH);
         map.fitBounds(markers.getBounds());
         var estacSIH = L.layerGroup([markers]);
