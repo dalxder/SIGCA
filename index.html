@@ -54,29 +54,44 @@ button.btn:active{
 </head>
 <body>
     <!-- Prototipo -->
-    <div >
+                    <h2>
+                    <b>Prototipo </b>Sistema de información de la  gestión del ciclo del agua
+                </h2>
 
-            <div id="sidebar" class="sidebar collapsed">
-                
+                <div>
+                    <div id="map" align="justify" style=" height: 550px; width: 100%" class="sidebar-map">
+                        
+                           <div>
+        <div id="sidebar" class="sidebar collapsed">        
         <!-- Nav tabs -->
-        <div class="sidebar-tabs">
-            <ul role="tablist">
-                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>             
-            </ul>
+            <div class="sidebar-tabs">
+                <ul role="tablist">
+                    <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>             
+                </ul>
 
-            <ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-            </ul>
-        </div>
+                <ul role="tablist">
+                    <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                </ul>
+            </div>
 
         <!-- Tab panes -->
         <div class="sidebar-content">
             <div class="sidebar-pane" id="home">
                  
                 <h1 class="sidebar-header">
-                    Sistema de información de la  gestión del ciclo del agua
+                    SIGCA
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
+                <p>
+                    Sistema de información de la  gestión del ciclo del agua
+                </p>
+                            <div class="btn-group"></div>
+        <button type="button" id="Todo" class="btn btn-primary">Todo</button> </br>
+        <button type="button" id="seriesSIH" class="btn btn-primary" >Series SIH</button></br>
+        <button type="button" id="basica2018" class="btn btn-primary">Hidrología Básica 2018</button></br>
+        <button type="button" id="DITG" class="btn btn-primary">DITG</button></br>
+
+    
             </div>
 
             <div class="sidebar-pane" id="messages">
@@ -87,17 +102,13 @@ button.btn:active{
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
             </div>
         </div>
-    </div>
-    </div>
-                <div>
-                    <div id="map" align="justify" style=" height: 550px; width: 100%" class="sidebar-map"></div>
+    </div> 
+                    </div>
                 </div> 
-    <script src="js/appMapa.js"></script> 
-            <div class="btn-group">
-        <button type="button" id="Todo" class="btn btn-primary">Todo</button>-->
-        <button type="button" id="seriesSIH" class="btn btn-primary" >Series SIH</button>
-        <button type="button" id="basica2018" class="btn btn-primary">Hidrología Básica 2018</button>
+
     </div>
+    <script src="js/appMapa.js"></script> 
+
     <script src="https://turbo87.github.io/sidebar-v2/js/leaflet-sidebar.js"></script>
     <script>/*
         $("#seriesSIH").click(function(){
@@ -106,33 +117,20 @@ button.btn:active{
             });
             */
 
-$("button").click(function(){
-    console.log($(this).css("background-color"));
 
-
-    if(this.id=="Todo"){
-        $("button").css('background-color','red');
-        $(this).css('background-color', 'green'); 
-    }
-    else{
-        if($(this).css("background-color")=="rgb(255, 0, 0)"){
-            $(this).css('background-color', 'green'); 
-        }else{
-            $(this).css('background-color', 'red');
-        }
-        $("#Todo").css('background-color','red');
-    }
-}
-);
+/*
           L.esri.featureLayer({
     url: 'https://www.acueducto.com.co/wassigue/arcgis/rest/services/Zonas/MapServer/0'
   }).addTo(map);
         
+*/
 
-          L.esri.Cluster.featureLayer({
-    url: 'https://www.acueducto.com.co/wassigue/arcgis/rest/services/EstacionesHidrometeorologicas/MapServer/2'
-  }).addTo(map);
-        var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+          var sidebar = L.control.sidebar('sidebar',{
+  // the DOM container or #ID of a predefined sidebar container that should be used
+    position: 'right'}).addTo(map);
+
+
     </script>
     
     </body>

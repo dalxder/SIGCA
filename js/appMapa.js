@@ -7,8 +7,7 @@
 var map = L.map('map', {
     center: [4.628211, -74.091638],
     zoom: 13,
-    layers: [googleSat]
-    ,
+    layers: [googleSat],
     fullscreenControl: true,
     // OR
     fullscreenControl: {
@@ -47,8 +46,25 @@ function ventanaEmergente(feature, layer) {
                     '<b>MUNICIPIO:</b> ' +feature.properties["MUNICIPIO"] +'</BR>'+
                     '<b>AUTORIDAD AMBIENTAL:</b> '+ feature.properties["AUTORIDAD AMBIENTAL"] +'</BR>'+
                     '<b>EQUIPAMENTO:</b></br> '+ feature.properties["Equipamento"]);
-                    }
-                
+                    };
+
+    var ppTempMeteo = "<b>Código: </b>{COD_ESTACION}</br>"+
+    "<b>SUBTIPO</b> {SUBTIPO}</br>"+
+    "<b>Código IDEAM: </b>{COD_IDEAM}<br>"+
+    "<b>Nombre estación</b>{NOMBREESTACION}<br>"+
+    "<b>Estado: </b>{DOMESTADOOPERATIVO}";
+        //       
+
+
+var geojsonMarkerOptions = {
+    radius: 5,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 0.8,
+    fillOpacity: 0.8
+};
+
 $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/EstacionesSeriesHidrol%C3%B3gicas.geojson", function (estSIH) {
     $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/EstacionesBasica2018.geojson", function (EstacionesBasica2018) {
         
@@ -68,35 +84,86 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/E
         map.fitBounds(markers2.getBounds());
         var estBasica2018= L.layerGroup([markers2]);
 
-        var capas = {
+      var meteo=L.esri.Cluster.featureLayer({
+    url: 'https://www.acueducto.com.co/wassigue/arcgis/rest/services/EstacionesHidrometeorologicas/MapServer/2',
+    //where: "SUBTIPO ='22'",
+  pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
+    
+  
+     });
+
+      meteo.bindPopup(function(e){
+        return L.Util.template(ppTempMeteo, e.feature.properties);
+      });
+            var capas = {
             'Estaciones SIH': estacSIH,
-            'Estaciones Básica 2018': estBasica2018
+            'Estaciones Básica 2018': estBasica2018,
+            'Meteorologicas':meteo,
         };
-// Agregar Controles de mapa
-        L.control.layers(mapasBase, capas).addTo(map);
-        L.control.scale().addTo(map);
+        L.control.layers(mapasBase, capas,{position: 'topleft'}).addTo(map); 
+        
  // The JavaScript below is new
-        /*
-        $("#others").click(function() {
-            
-            map.addLayer(estacSIH)
-            map.removeLayer(estBasica2018 )
-        }).bgcolor="green";*/
+ /*
         $("#seriesSIH").click(function() {
             map.addLayer(estBasica2018)
             map.removeLayer(estacSIH)
+            $(this).css('background-color', 'green'); 
         });
         $("#basica2018").click(function() {
-            map.addLayer(estacSIH)
-            map.addLayer(estBasica2018 )
-            });
-        
+
+            });*/
+
+$("button").click(function(){
+    
+    if(this.id=="Todo"){
+        $("button").css('background-color','green');
+        map.addLayer(estacSIH)
+        map.addLayer(estBasica2018 )
+        $(this).css('background-color', 'green'); 
+    }
+    else{
+
+        if($(this).css("background-color")=="rgb(255, 0, 0)"){
+            $(this).css('background-color', 'green');
+            if (this.id=="seriesSIH"){map.addLayer(estacSIH);}
+            if (this.id=="basica2018"){map.addLayer(estBasica2018);}
+            if (this.id=="DITG"){map.addLayer(meteo);}
+        }else{ 
+            $(this).css('background-color', 'red');
+            if (this.id=="seriesSIH"){map.removeLayer(estacSIH);}
+            if (this.id=="basica2018"){map.removeLayer(estBasica2018);}
+            if (this.id=="DITG"){map.removeLayer(meteo);}
+            }
+        $("#Todo").css('background-color','red');
+    }
+}
+);
+
+//map state by itself, whereas it does with Leaflet 0.7.x?
+map.on("overlayadd overlayremove", function (event) {
+    var layer = event.layer;
+    if (event.type === "overlayadd") {
+            if (layer === meteo){
+                $("#DITG").css('background-color', 'green')
+            }
+
+    }
+    if (event.type === "overlayremove"){
+        $("#DITG").css('background-color', 'red')
+    }
+
+});
 
     });
 });
+
 L.easyButton('glyphicon-star', function (btn, map) {
     var chuza = [4.5522, -73.7191];
     map.setView(chuza, 10);
 }).addTo(map);
+L.control.scale().addTo(map);
+
 
     
