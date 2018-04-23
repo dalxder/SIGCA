@@ -119,8 +119,9 @@ $("button").click(function(){
     
     if(this.id=="Todo"){
         $("button").css('background-color','green');
-        map.addLayer(estacSIH)
-        map.addLayer(estBasica2018 )
+        map.addLayer(estacSIH);
+        map.addLayer(estBasica2018 );
+        map.addLayer(meteo );
         $(this).css('background-color', 'green'); 
     }
     else{
