@@ -10,7 +10,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+	<base href="/">
+	</head>
 <body ng-app="">
 	<div ng-include="'parts/navbar.htm'"></div>
 	<div class="container" ng-view>
@@ -32,22 +33,22 @@
 		<br/>
 		<div id="docObjetivo" >
 			<div ng-include="'doc/objetivo.htm'"></div>
-		    <a href="docContenido">..</a>
+		    <a href="#docContenido">..</a>
 		</div>
 		<br/>
 
 		<div id="docAntecedentes">
 			<div ng-include="'doc/antecedentes.htm'"></div>
-		    <a href="docContenido">..</a>
+		    <a href="#docContenido">..</a>
 		</div>
 
 		<div id="docAlternativa">
 			<div ng-include="'doc/alternativa.htm'"></div>
-		    <a href="docContenido">..</a>
+		    <a href="#docContenido">..</a>
 		</div>
 		<div id="docDesarrollo">
 		    <h3 class="align-center">Desarrollo de la alternativa</h3>
-		    <a href="docContenido">..</a>
+		    <a href="#docContenido">..</a>
 		</div>
 	</div>
 	<!--Javascript-->
