@@ -12,63 +12,44 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body ng-app="">
-  <div ng-include="'parts/navbar.htm'"></div>
-<div class="container">
-        <div id="docTitulo">
-            <h2 class="align-center">
-                Bienvenidos al sistema de información de la gestión del ciclo del agua
-                <br/>
-                <span class="text-aqua">Proyecto!<i> SIGCA</i></span>
-            </h2>
+	<div ng-include="'parts/navbar.htm'"></div>
+	<div class="container">
+		<div id="docTitulo">
+		    <h2 class="align-center">
+			Bienvenidos al sistema de información de la gestión del ciclo del agua
+			<br/>
+			<span class="text-aqua">Proyecto!<i> SIGCA</i></span>
+		    </h2>
+		</div>
+		<div id="docContenido">
+			<div ng-include="'doc/contenido.htm'"></div>
+		</div>          
+		<div>
+		    <h3 id="docNomenclaturas" class="align-center"><b>Nomenclaturas</b></h3>
+		    <p><a href="https://es.wikipedia.org/wiki/AJAX" target="_blank"><b>Ajax: </b>Acrónimo de Asynchronous JavaScript And XML</a></p>            
+		    <p><a href="https://es.wikipedia.org/wiki/Plain_Old_Java_Object" target="_blank"><b>POJO: </b>Acrónimo de Plain Old Java Object</a></p>
+		</div>
+		<br/>
+		<div id="docObjetivo" >
+			<div ng-include="'doc/objetivo.htm'"></div>
+		    <a href="#docContenido">..</a>
+		</div>
+		<br/>
+
+		<div id="docAntecedentes">
+			<div ng-include="'doc/antecedentes.htm'"></div>
+		    <a href="#docContenido">..</a>
+		</div>
+
+		<div id="docAlternativa">
+			<div ng-include="'doc/alternativa.htm'"></div>
+		    <a href="#docContenido">..</a>
+		</div>
+		<div id="docDesarrollo">
+		    <h3 class="align-center">Desarrollo de la alternativa</h3>
+		    <a href="#docContenido">..</a>
+		</div>
 	</div>
-	<div id="docContenido">
-		<ol>
-		    <li>
-			<a href="#docNomenclaturas">Nomenclaturas</a>
-		    </li>                    
-		    <li>
-			<a href="#docObjetivo">Objetivo</a>
-		    </li>
-		    <li>
-			<a href="#docAntecedentes">Antecedentes</a>
-		    </li>
-		    <li>
-			<a href="#docAlternativa">Alternativas</a>
-		    </li>
-		    <li>
-			<a href="#docDesarrollo">Desarrollo de la alternativa</a>
-		    </li>                    
-		</ol>
-	</div>          
-        <div>
-            <h3 id="docNomenclaturas" class="align-center"><b>Nomenclaturas</b></h3>
-            <p><a href="https://es.wikipedia.org/wiki/AJAX" target="_blank"><b>Ajax: </b>Acrónimo de Asynchronous JavaScript And XML</a></p>            
-            <p><a href="https://es.wikipedia.org/wiki/Plain_Old_Java_Object" target="_blank"><b>POJO: </b>Acrónimo de Plain Old Java Object</a></p>
-        </div>
-        <br/>
-        <div id="docObjetivo" >
-		<div ng-include="'doc/objetivo.htm'"></div>
-            <a href="#docContenido">..</a>
-        </div>
-        <br/>
-   
-        <div id="docAntecedentes">
-		<div ng-include="'doc/antecedentes.htm'"></div>
-            <a href="#docContenido">..</a>
-        </div>
-
-        <div id="docAlternativa">
-		<div ng-include="'doc/alternativa.htm'"></div>
-            <a href="#docContenido">..</a>
-        </div>
-        <div id="docDesarrollo">
-            <h3 class="align-center">Desarrollo de la alternativa</h3>
-            <a href="#docContenido">..</a>
-        </div>
-</div>
-
-	
-	
 	<!--Javascript-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
