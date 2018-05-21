@@ -10,7 +10,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<base href="./documento/">
+	
 	</head>
 <body ng-app="">
 	<div ng-include="'parts/navbar.htm'"></div>
@@ -33,22 +33,22 @@
 		<br/>
 		<div id="docObjetivo" >
 			<div ng-include="'doc/objetivo.htm'"></div>
-		    <a href="#docContenido">..</a>
+		    <a href="#docContenido" target="_self">..</a>
 		</div>
 		<br/>
 
 		<div id="docAntecedentes">
 			<div ng-include="'doc/antecedentes.htm'"></div>
-		    <a href="#docContenido">..</a>
+		    <a href="#docContenido" target="_self">..</a>
 		</div>
 
 		<div id="docAlternativa">
 			<div ng-include="'doc/alternativa.htm'"></div>
-		    <a href="#docContenido">..</a>
+		    <a href="#docContenido" target="_self">..</a>
 		</div>
 		<div id="docDesarrollo">
 		    <h3 class="align-center">Desarrollo de la alternativa</h3>
-		    <a href="#docContenido">..</a>
+		    <a href="#docContenido" target="_self">..</a>
 		</div>
 	</div>
 	<!--Javascript-->
@@ -56,5 +56,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-   </body>
+	<script data-require="angular-ui-router@0.2.10" data-semver="0.2.10" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+	</body>
 </html>   
