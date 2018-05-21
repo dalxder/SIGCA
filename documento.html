@@ -10,7 +10,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
+	<style>
+ol { counter-reset: item }
+li{ display: block }
+li:before { content: counters(item, ".") " "; counter-increment: item }
+
+</style>
 	</head>
 <body ng-app="">
 	<div ng-include="'parts/navbar.htm'"></div>
