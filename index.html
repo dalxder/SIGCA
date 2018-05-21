@@ -101,6 +101,7 @@
 
         <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 
+        <script src="js/mapsBase.js"></script> 
         <script src="js/appMapa.js"></script> 
 
         <script src="https://turbo87.github.io/sidebar-v2/js/leaflet-sidebar.js"></script>
@@ -110,16 +111,11 @@
          $(this).toggleClass('active'); 
          });
          */
-
-
                 /*
                  L.esri.featureLayer({
                  url: 'https://www.acueducto.com.co/wassigue/arcgis/rest/services/Zonas/MapServer/0'
                  }).addTo(map);
-             
                  */
-
-
                 var sidebar = L.control.sidebar('sidebar', {
                     // the DOM container or #ID of a predefined sidebar container that should be used
                     position: 'right'}).addTo(map);
