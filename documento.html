@@ -43,10 +43,12 @@ li:before { content: counters(item, ".") " "; counter-increment: item }
 			<br/>
 
 			<div id="docAntecedentes">
-				<h3 class="align-center"><li>Antecedentes</li></h3>
-				<div ng-include="'doc/calidad.htm'"></div>
-				<div ng-include="'doc/cantidad.htm'"></div>
-			    <a href="#docContenido" target="_self">..</a>
+				<ol>
+					<h3 class="align-center"><li>Antecedentes</li></h3>
+					<div ng-include="'doc/calidad.htm'"></div>
+					<div ng-include="'doc/cantidad.htm'"></div>
+					<a href="#docContenido" target="_self">..</a>
+				</ol>
 			</div>
 
 			<div id="docAlternativa" ng-include="'doc/alternativa.htm'">
