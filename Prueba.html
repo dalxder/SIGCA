@@ -1,4 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="app">
-<script src="//"></script>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/controller.js"></script>
+    </head>
+  <body ng-controller="menuCtr">
+    <ol>
+      <li ng-repeat="m in menu">
+        {{m.id}} <b>{{m.href}}</b>
+      </li>
+    </ol>
+  </body>
 </html>
