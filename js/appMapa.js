@@ -60,7 +60,7 @@ function ventanaEmergenteSIH(feature, layer) {
     "<b>SUBTIPO</b> {SUBTIPO}</br>"+
     "<b>Código IDEAM: </b>{COD_IDEAM}<br>"+
     "<b>Nombre estación</b>{NOMBREESTACION}<br>"+
-    "<b>Estado: </b>{DOMESTADOOPERATIVO}"+
+    "<b>Estado: </b>{DOMESTADOOPERATIVO}<br>"+
     "<b>Gráfica: </b><a href={URL}>{URL}</a>";
         //       
 
