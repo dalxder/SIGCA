@@ -56,6 +56,8 @@ ol li:before { content: counters(item, ".") " "; counter-increment: item }
 			<br/>
 			<span class="text-aqua">Proyecto!<i> SIGCA</i></span>
 		    </h2>
+		    <br/>
+		    <br/>	
 		</div>
 		
 		<div id="docContenido" ng-include="'doc/contenido.htm'"></div>
@@ -108,19 +110,16 @@ ol li:before { content: counters(item, ".") " "; counter-increment: item }
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script>
 		// Control scroll a la tabla de contenido
-		window.onscroll = function() {scrollFunction()};
-
-		var position =$("#docContenido").position().top;
-
-		function scrollFunction() {
-		    if (document.documentElement.scrollTop> position) {
-			document.getElementById("myBtn").style.display = "block";
+		window.onscroll = function(){
+		    var position =$("#docContenido").position().top;
+		    if ($(document).scrollTop()> position) {
+			$("#myBtn").css("display"," block");
 		    } else {
-			document.getElementById("myBtn").style.display = "none";
+			$("#myBtn").css("display"," none");
 		    }
 		}
 
-		// When the user clicks on the button, scroll to the top of the document
+		// Navega ala tabla de contenido
 		function navFunction() {
 			location.href="#docContenido";
 		}
