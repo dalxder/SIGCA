@@ -99,28 +99,29 @@ ol li:before { content: counters(item, ".") " "; counter-increment: item }
 		</ol>
 	</div>
 	<!--Javascript-->
-	<script>
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
 
-var position =$("#docContenido").position().top;
-
-function scrollFunction() {
-    if (document.documentElement.scrollTop> position) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function navFunction() {
-	location.href="#docContenido";
-}
-</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		// Control scroll a la tabla de contenido
+		window.onscroll = function() {scrollFunction()};
+
+		var position =$("#docContenido").position().top;
+
+		function scrollFunction() {
+		    if (document.documentElement.scrollTop> position) {
+			document.getElementById("#myBtn").style.display = "block";
+		    } else {
+			document.getElementById("#myBtn").style.display = "none";
+		    }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function navFunction() {
+			location.href="#docContenido";
+		}
+	</script>
 	</body>
 </html>   
