@@ -1,2 +1,4 @@
 # SIGCA
-Prototipo Sistema de información de la gestion del ciclo del agua
+Prototipo Sistema integral para la gestión del ciclo del agua.
+
+https://dalxder.github.io/SIGCA
