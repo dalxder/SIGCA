@@ -29,9 +29,15 @@ ol li:before { content: counters(item, ".") " ";
         counter-increment: h3counter;
         counter-reset: h4counter;
     }
-    h5:before {
+    h4:before {
         content: counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
         counter-increment: h4counter;
+        counter-reset: h5counter;
+    }		
+    h5:before {
+        content: counter(h3counter) "." counter(h4counter) "." counter(h5counter) ".\0000a0\0000a0";
+        counter-increment: h5counter;
+	counter-reset: h6counter;
     }		
 		
 		
