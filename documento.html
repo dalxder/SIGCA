@@ -15,8 +15,26 @@
 		padding-inline-start: 0px;
 		-webkit-padding-start: 0px;}
 .ordList .list{ display: block }
-.ordList .list:before { content: counters(item, ".") " "; counter-increment: item }
-
+.ordList .list:before { content: counters(item, ".") " "; 
+	counter-increment: item }	
+/*Contador de titulos*/		
+    body {
+        counter-reset: h3counter;
+    }
+    h2 {
+        counter-reset: h3counter;
+    }
+    h3:before {
+        content: counter(h3counter) ".\0000a0\0000a0";
+        counter-increment: h3counter;
+        counter-reset: h4counter;
+    }
+    h5:before {
+        content: counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
+        counter-increment: h4counter;
+    }		
+		
+		
 #myBtn {
   font-size: 15px;
   display: none;
