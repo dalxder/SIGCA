@@ -10,6 +10,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/css/counter.css"/>
 	<style>
 ol { counter-reset: item;
 		padding-inline-start: 0px;
@@ -65,7 +66,8 @@ ol li:before { content: counters(item, ".") " ";
 
 		<div id="docNomenclaturas" ng-include="'doc/nomenclaturas.htm'"></div>	
 		<br/>
-		<!--<ol>-->	
+		<!--<ol>-->
+		<div id="#write" class="container">
 			<div id="docIntroduccion"  ng-include="'doc/introduccion.htm'">
 			    <a href="#docContenido" target="_self">..</a>
 			</div>
@@ -101,6 +103,7 @@ ol li:before { content: counters(item, ".") " ";
 			    <h3 class="align-center">Desarrollo de la alternativa</h3>
 			    <a href="#docContenido" target="_self">..</a>
 			</div>
+		</div>
 		<!--</ol>-->
 	</div>
 	<!--Javascript-->
