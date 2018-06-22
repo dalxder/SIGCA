@@ -2,7 +2,7 @@
 function draw(){
   
   var map = L.map('map', {
-    center: [51.505, -0.09],
+    center: [4, -74.4],
     zoom: 13
 });
 
