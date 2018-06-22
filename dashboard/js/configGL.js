@@ -114,7 +114,7 @@ myLayout.registerComponent('dashboard', function (container, state) {
         //$("#map").css({"width": "90%", "height": "90%"});
 
         dc.renderAll();
-        
+        console.log(container.getElement());
     });
 
 

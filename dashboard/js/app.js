@@ -1,10 +1,7 @@
 
 function draw(){
   
-  var map = L.map('map', {
-    center: [4, -74.4],
-    zoom: 13
-});
+  var map = L.map('map');
 
   
 
@@ -16,7 +13,6 @@ var breweryMarkers = new L.FeatureGroup();
 
 /* Parse JSON file, create charts, draw markers on map */
 d3.json('untappd.json', function (error, data) {
-  console.log("carga");
   var beerData = data.response.beers.items;
 
   var fullDateFormat = d3.time.format('%a, %d %b %Y %X %Z');
