@@ -102,7 +102,7 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/E
     
   
      });
-console.log(L.esri.Util.arcgisToGeoJSON(meteo));
+console.log(L.esri.Util.arcgisToGeoJSON('https://www.acueducto.com.co/wassigue/arcgis/rest/services/EstacionesHidrometeorologicas/MapServer/2'));
       meteo.bindPopup(function(e){
         return L.Util.template(ppTempMeteo, e.feature.properties);
       });
