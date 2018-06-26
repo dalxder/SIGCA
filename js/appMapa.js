@@ -102,7 +102,7 @@ $.getJSON("https://raw.githubusercontent.com/dalxder/SIGCA/gh-pages/js/geoJSON/E
     
   
      });
-console.log(meteo);
+console.log(L.esri.Util.arcgisToGeoJSON(meteo));
       meteo.bindPopup(function(e){
         return L.Util.template(ppTempMeteo, e.feature.properties);
       });
