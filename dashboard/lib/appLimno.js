@@ -6,11 +6,11 @@ d3.json("datos/Puntos_Limnología.geojson", function(data) {
   
 
   //MAPA
-  var puntosMap = xf.dimension(function(d) {
-    var loc=[d.properties.Latitud,d.properties.Longitud]; 
+ // var puntosMap = xf.dimension(function(d) {
+    //var loc=[d.properties.Latitud,d.properties.Longitud]; 
       //d.geometry.coordinates;
-    return loc});
-  var puntosMapGroup = puntosMap.group().reduceCount();
+   // return loc});
+  //var puntosMapGroup = puntosMap.group().reduceCount();
 
   //PIE CHAR fuente
   var typesFuentes = xf.dimension(function(d) { 
