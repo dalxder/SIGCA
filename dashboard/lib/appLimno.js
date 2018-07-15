@@ -39,7 +39,7 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
   var chartSitema = dc.pieChart("#pieSistema",groupname);
   var ratingCountChart=dc.barChart("#barFuente",groupname);
   
-/*
+
   mymap
   .dimension(puntosMap)
   .group(puntosMapGroup)
@@ -49,15 +49,6 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
    .zoom(7)
   .renderPopup(false)
               .filterByArea(true);
-  
-  .valueAccessor(function(kv) {
-        return kv.value.count;
-  })
-  .popup(function(kv,marker) {
-        var data1="Ventana emergente de Alerta!!";
-        return "<b>Tipo de fuente:</b>: "+kv.value.type + " </br>Ubicación: " + kv.value.geo+
-        "<br/><button type='button' onclick='alert("+'"'+data1+'"'+")'>Evento click!</button>";
-  })*/
 
   chartFuente
   .dimension(typesFuentes)
