@@ -39,7 +39,7 @@ d3.json("datos/Puntos_Limnología.geojson", function(data) {
   var chartSitema = dc.pieChart("#pieSistema",groupname);
   var ratingCountChart=dc.barChart("#barFuente",groupname);
   
-
+/*
   mymap.dimension(puntosMap)
   .group(puntosMapGroup)
   //.width("100%")
@@ -49,7 +49,7 @@ d3.json("datos/Puntos_Limnología.geojson", function(data) {
   .cluster(true)
   .renderPopup(true)
   .filterByArea(true);
-  /*
+  
   .valueAccessor(function(kv) {
         return kv.value.count;
   })
@@ -120,10 +120,10 @@ dataTable = dc.dataTable('#data-table',groupname);
      });
 
   dc.renderAll(groupname);  
-  mymap.map().setView([4.4,-74.5], 8);
+  //mymap.map().setView([4.4,-74.5], 8);
 
   myLayout.on('stateChanged', function() {   
-      mymap.map().invalidateSize();  
+      //mymap.map().invalidateSize();  
   });
 
 d3.select('#download')
