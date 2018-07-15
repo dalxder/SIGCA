@@ -44,11 +44,11 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
   .dimension(puntosMap)
   .group(puntosMapGroup)
    .center([4,-74])
-   .width(600)
-   .height(400)
+   //.width(600)
+   //.height(400)
    .zoom(10)
-  .renderPopup(true)
- .filterByArea(true);
+  .renderPopup(true);
+ //.filterByArea(true);
 
   chartFuente
   .dimension(typesFuentes)
