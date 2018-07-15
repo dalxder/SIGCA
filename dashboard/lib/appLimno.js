@@ -47,8 +47,8 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
    //.width(600)
    //.height(400)
    .zoom(10)
-  .renderPopup(true);
- //.filterByArea(true);
+  .renderPopup(true)
+ .filterByArea(true);
 
   chartFuente
   .dimension(typesFuentes)
