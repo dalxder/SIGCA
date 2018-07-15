@@ -120,7 +120,7 @@ dataTable = dc.dataTable('#data-table',groupname);
      });
 
   dc.renderAll(groupname);  
-  mymap.map().setView([4.4,-74.5], 8);
+  //mymap.map().setView([4.4,-74.5], 8);
 
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
