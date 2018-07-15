@@ -6,11 +6,11 @@ d3.json("datos/Puntos_Limnología.geojson", function(data) {
   
 
   //MAPA
- // var puntosMap = xf.dimension(function(d) {
-    //var loc=[d.properties.Latitud,d.properties.Longitud]; 
+ var puntosMap = xf.dimension(function(d) {
+    var loc=[d.properties.Latitud,d.properties.Longitud]; 
       //d.geometry.coordinates;
-   // return loc});
-  //var puntosMapGroup = puntosMap.group().reduceCount();
+   return loc});
+ var puntosMapGroup = puntosMap.group().reduceCount();
 
   //PIE CHAR fuente
   var typesFuentes = xf.dimension(function(d) { 
@@ -34,21 +34,21 @@ d3.json("datos/Puntos_Limnología.geojson", function(data) {
 //console.log(d.properties);
 
   // Componentes
- // var mymap=dc.leafletMarkerChart("#map",groupname);
+var mymap=dc.leafletMarkerChart("#map",groupname);
   var chartFuente = dc.pieChart("#pieFuente",groupname);
   var chartSitema = dc.pieChart("#pieSistema",groupname);
   var ratingCountChart=dc.barChart("#barFuente",groupname);
   
 /*
-  mymap.dimension(puntosMap)
+  mymap
+  .dimension(puntosMap)
   .group(puntosMapGroup)
-  //.width("100%")
-  //.height("100%")
-  //.center([4,-74])
-  //.zoom(10)
-  .cluster(true)
-  .renderPopup(true)
-  .filterByArea(true);
+   .center([4,-74])
+   .width(600)
+   .height(400)
+   .zoom(7)
+  .renderPopup(false)
+              .filterByArea(true);
   
   .valueAccessor(function(kv) {
         return kv.value.count;
