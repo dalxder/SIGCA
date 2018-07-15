@@ -30,7 +30,7 @@ var config = {
             content: [{
                     type: 'component',
                     componentName: 'dashboard',
-                    componentState: {data: '<div id="mapwrapper"><div id="map"></div></div>'},
+                    componentState: {data: '<div id="map"></div>'},
                     isClosable: false,
                     title: 'Mapa'
                     
