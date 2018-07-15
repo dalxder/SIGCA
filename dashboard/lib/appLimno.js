@@ -44,11 +44,11 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
   .dimension(puntosMap)
   .group(puntosMapGroup)
    .center([4,-74])
-   .width(600)
-   .height(400)
+   .width("100%")
+   .height("100%")
    .zoom(7)
-  .renderPopup(false)
-              .filterByArea(true);
+  .renderPopup(true)
+ .filterByArea(true);
 
   chartFuente
   .dimension(typesFuentes)
@@ -111,7 +111,7 @@ dataTable = dc.dataTable('#data-table',groupname);
      });
 
   dc.renderAll(groupname);  
-    mymap.map().setView([4.4,-74.5], 8);
+    //mymap.map().setView([4.4,-74.5], 8);
 
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
