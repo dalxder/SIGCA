@@ -44,9 +44,9 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
   .dimension(puntosMap)
   .group(puntosMapGroup)
    .center([4,-74])
-   .width("100%")
-   .height("100%")
-   .zoom(7)
+   .width(600)
+   .height(400)
+   .zoom(10)
   .renderPopup(true)
  .filterByArea(true);
 
