@@ -1,7 +1,7 @@
 /*!
- * dc-addons v0.13.5
+ * dc-addons v0.12.0
  *
- * 2018-06-22 09:54:20
+ * 2016-02-18 16:19:52
  *
  */
 (function () {
@@ -189,17 +189,13 @@
         };
 
         var _featureStyle = function (feature) {
-            var v = _dataMap[_chart.featureKeyAccessor()(feature)];
-
             var options = _chart.featureOptions();
-            var optionsIsFunction = options instanceof Function;
-
-            if (optionsIsFunction) {
-                options = options(feature, v);
+            if (options instanceof Function) {
+                options = options(feature);
             }
             options = JSON.parse(JSON.stringify(options));
-
-            if (v && v.d && !optionsIsFunction) {
+            var v = _dataMap[_chart.featureKeyAccessor()(feature)];
+            if (v && v.d) {
                 options.fillColor = _chart.getColor(v.d, v.i);
                 if (_chart.filters().indexOf(v.d.key) !== -1) {
                     options.opacity = 0.8;
@@ -303,6 +299,7 @@
     dc.leafletMarkerChart = function (parent, chartGroup) {
         var _chart = dc.baseLeafletChart({});
 
+        var _renderPopup = true;
         var _cluster = false; // requires leaflet.markerCluster
         var _clusterOptions = false;
         var _rebuildMarkers = false;
@@ -313,13 +310,11 @@
         var _zooming = false;
         var _layerGroup = false;
         var _markerList = {};
+        var _currentGroups = false;
 
         var _fitOnRender = true;
         var _fitOnRedraw = false;
         var _disableFitOnRedraw = false;
-
-        var _renderPopup = true;
-        var _popupOnHover = false;
 
         _chart.renderTitle(true);
 
@@ -327,11 +322,11 @@
             return _chart.keyAccessor()(d);
         };
 
-        var _marker = function (d) {
+        var _marker = function (d,map) {
             var marker = new L.Marker(_chart.toLocArray(_chart.locationAccessor()(d)),{
                 title: _chart.renderTitle() ? _chart.title()(d) : '',
                 alt: _chart.renderTitle() ? _chart.title()(d) : '',
-                icon: _icon(d, _chart.map()),
+                icon: _icon(),
                 clickable: _chart.renderPopup() || (_chart.brushOn() && !_filterByArea),
                 draggable: false
             });
@@ -372,6 +367,10 @@
             var groups = _chart._computeOrderedGroups(_chart.data()).filter(function (d) {
                 return _chart.valueAccessor()(d) !== 0;
             });
+            if (_currentGroups && _currentGroups.toString() === groups.toString()) {
+                return;
+            }
+            _currentGroups = groups;
 
             if (_rebuildMarkers) {
                 _markerList = {};
@@ -388,16 +387,6 @@
                 else {
                     marker = createmarker(v,key);
                 }
-
-                var curFilters = _chart.filters();
-                var markerOpacity = curFilters.length ? 0.3 : 1.0;
-                curFilters.forEach(function (filter) {
-                    if (key === filter) {
-                        markerOpacity = 1.0;
-                    }
-                });
-                marker.setOpacity(markerOpacity);
-
                 if (!_chart.cluster()) {
                     _layerGroup.addLayer(marker);
                 }
@@ -458,14 +447,6 @@
                 return _renderPopup;
             }
             _renderPopup = _;
-            return _chart;
-        };
-
-        _chart.popupOnHover = function (_) {
-            if (!arguments.length) {
-                return _popupOnHover;
-            }
-            _popupOnHover = _;
             return _chart;
         };
 
@@ -536,18 +517,7 @@
             marker.key = k;
             if (_chart.renderPopup()) {
                 marker.bindPopup(_chart.popup()(v,marker));
-
-                if (_chart.popupOnHover()) {
-                    marker.on('mouseover', function () {
-                        marker.openPopup();
-                    });
-
-                    marker.on('mouseout', function () {
-                        marker.closePopup();
-                    });
-                }
             }
-
             if (_chart.brushOn() && !_filterByArea) {
                 marker.on('click',selectFilter);
             }
@@ -585,7 +555,7 @@
                     dc.redrawAll(_chart.chartGroup());
                 });
             } else if (_chart.filter() && (e.type === 'click' ||
-                                           (_markerList.hasOwnProperty(_chart.filter()) &&
+                                           (_markerList.indexOf(_chart.filter()) !== -1 &&
                                             !_chart.map().getBounds().contains(_markerList[_chart.filter()].getLatLng())))) {
                 dc.events.trigger(function () {
                     _chart.filter(null);
@@ -701,7 +671,7 @@ dc.leafletLegend = function () {
         return this;
     };
 
-    var _LegendClass = function () {
+    function _LegendClass() {
         return L.Control.extend({
             options: {position: _position},
             onAdd: function (map) {
@@ -739,7 +709,7 @@ dc.leafletLegend = function () {
                 }
             }
         });
-    };
+    }
 
     _legend.LegendClass = function (LegendClass) {
         if (!arguments.length) {
