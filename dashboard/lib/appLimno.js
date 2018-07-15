@@ -34,7 +34,7 @@ d3.json("datos/Puntos_Limnología.geojson", function(data) {
 //console.log(d.properties);
 
   // Componentes
-  var mymap=dc.leafletMarkerChart("#map",groupname);
+ // var mymap=dc.leafletMarkerChart("#map",groupname);
   var chartFuente = dc.pieChart("#pieFuente",groupname);
   var chartSitema = dc.pieChart("#pieSistema",groupname);
   var ratingCountChart=dc.barChart("#barFuente",groupname);
