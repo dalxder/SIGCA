@@ -118,7 +118,7 @@ dataTable = dc.dataTable('.dc-data-grid',groupname);
       mymap.map().invalidateSize();  
   });
  
-  $("#search").on('input',function(e){
+  $("#buscar").on('input',function(e){
        setTimeout(function() {
         dc.redrawAll(groupname); 
     }, 500);
