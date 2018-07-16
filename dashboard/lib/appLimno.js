@@ -117,13 +117,13 @@ dataTable = dc.dataTable('.dc-data-grid',groupname);
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
   });
- 
+ /*
   $("#buscar").on('input',function(e){
        setTimeout(function() {
         dc.redrawAll(groupname); 
     }, 500);
     
-});
+});*/
 
 d3.select('#download')
     .on('click', function() {
