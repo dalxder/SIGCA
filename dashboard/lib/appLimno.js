@@ -117,7 +117,7 @@ dataTable = dc.dataTable('#data-table',groupname);
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
   });
-  $("#search").on('input',function(){
+  $("#search").on('input',function(e){
     dc.redrawAll(groupname); 
 });
 
