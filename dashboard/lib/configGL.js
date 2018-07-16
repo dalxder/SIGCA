@@ -1,5 +1,5 @@
 var tablaDatos='<div><input type="search" id="buscar" placeholder="Busqueda" size="30"></input>'+
-'<table id="main_container" class="table">'+
+'<table id="main_container" class="table dc-data-grid">'+
   '<thead>'+
     '<tr class=header>'+
       '<th>Nombre</th>'+
