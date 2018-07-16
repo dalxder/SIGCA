@@ -6,7 +6,7 @@ d3.json("datos/Puntos_Limnología.geojson").then(function(data) {
   
 
 
-    var chart = dc.textFilterWidget("#search",groupname)
+    var chart = dc.textFilterWidget("#buscar",groupname)
         .dimension(datatableDim);
 
   //MAPA
