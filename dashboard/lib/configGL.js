@@ -1,16 +1,15 @@
-var tablaDatos='<div id="main_container" >'+
-                '<div id="search"></div>'+
-                '<table class="table table-bordered table-striped" id="data-table" >'+
-                    '<thead>'+
-                      '<tr class="header">'+
-                        '<th>Latitud</th>'+
-                        '<th>Longitud</th>'+
-                        '<th>Fuente</th>'+
-                        '<th>Sistema</th>'+
-                      '</tr>'+
-                    '</thead>'+
-                  '</table>'+
-                  '</div>';
+var tablaDatos='<div id="search"></div>'+
+'<div style="clear:both;">'+
+'<table class="table dc-data-grid">'+
+  '<thead>'+
+    '<tr class=header>'+
+      '<th>Nb</th>'+
+      '<th>First Name</th>'+
+      '<th>Last Name</th>'+
+   ' </tr>'+
+  '</thead>'+
+'</table>'+
+'</div>';
 
 
 var config = {
