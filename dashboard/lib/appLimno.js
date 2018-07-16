@@ -117,6 +117,9 @@ dataTable = dc.dataTable('#data-table',groupname);
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
   });
+  $("#search").change(function(){
+    dc.renderAll(groupname); 
+});
 
 d3.select('#download')
     .on('click', function() {
