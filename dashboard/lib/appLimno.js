@@ -100,18 +100,15 @@ dataTable = dc.dataTable('#data-table',groupname);
         function (d) { return d.properties.Sistema; }
 
       ])
-      //.sortBy(dc.pluck('Fuente'))
+      .sortBy(dc.pluck('Fuente'))
       .order(d3.descending)
       .on('renderlet', function (table) {
         // each time table is rendered remove nasty extra row dc.js insists on adding
         table.select('tr.dc-table-group').remove();
-
-        // update map with breweries to match filtered data
-       //breweryMarkers.clearLayers();
      });
-mymap.map().invalidateSize(); 
+
   dc.renderAll(groupname);  
-    //mymap.map().setView([4.4,-74.5], 8);
+  mymap.map().setView([4.4,-74.5], 8);
 
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
