@@ -4,12 +4,10 @@ d3.json("datos/Puntos_Limnología.geojson",function(data) {
   var groupname = "puntosLimno";
   var datatableDim = xf.dimension(function(d) {return d;});
   
-  dimSearch = xf.dimension(function (d) {
-            return d.properties.Nombre;
-        });
+
 
     var chart = dc.textFilterWidget("#search",groupname)
-        .dimension(dimSearch);
+        .dimension(datatableDim);
 
   //MAPA
  var puntosMap = xf.dimension(function(d) {
