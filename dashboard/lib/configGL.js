@@ -1,11 +1,11 @@
-var tablaDatos='<div id="search"></div>'+
+var tablaDatos='<div id="Buscar"></div>'+
 '<div style="clear:both;">'+
-'<table class="table dc-data-grid">'+
+'<table id="main_container" class="table dc-data-grid">'+
   '<thead>'+
     '<tr class=header>'+
-      '<th>Nb</th>'+
-      '<th>First Name</th>'+
-      '<th>Last Name</th>'+
+      '<th>Nombre</th>'+
+      '<th>Latitud</th>'+
+      '<th>Longitud</th>'+
    ' </tr>'+
   '</thead>'+
 '</table>'+
