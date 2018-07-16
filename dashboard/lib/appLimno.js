@@ -118,7 +118,7 @@ dataTable = dc.dataTable('#data-table',groupname);
       mymap.map().invalidateSize();  
   });
   $("#search").change(function(){
-    dc.renderAll(groupname); 
+    dc.redrawAll(groupname); 
 });
 
 d3.select('#download')
