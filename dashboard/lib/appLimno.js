@@ -4,7 +4,7 @@ d3.json("datos/Puntos_Limnología.geojson",function(data) {
   var groupname = "puntosLimno";
   var datatableDim = xf.dimension(function(d) {return d;});
   
-  dimSearch = ndx.dimension(function (d) {
+  dimSearch = xf.dimension(function (d) {
             return d.properties.Nombre;
         });
 
