@@ -85,7 +85,7 @@ var mymap=dc.leafletMarkerChart("#map",groupname);
       .height(180)
       .dimension(typesBarFuentes)
       .group(typesBarFuentesGroup)
-      .x(d3.scale.linear().domain([0,7]))
+      .x(d3.scaleLinear().domain([0,7]))
       .elasticY(true)
       .centerBar(true)
       //.barPadding(5)
