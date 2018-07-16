@@ -109,12 +109,12 @@ dataTable = dc.dataTable('#data-table',groupname);
         // update map with breweries to match filtered data
        //breweryMarkers.clearLayers();
      });
-
+mymap.map().invalidateSize(); 
   dc.renderAll(groupname);  
     //mymap.map().setView([4.4,-74.5], 8);
 
   myLayout.on('stateChanged', function() {   
-      //mymap.map().invalidateSize();  
+      mymap.map().invalidateSize();  
   });
 
 d3.select('#download')
