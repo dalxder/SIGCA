@@ -1,4 +1,5 @@
 var tablaDatos='<div id="main_container" >'+
+                '<div id="search"></div>'+
                 '<table class="table table-bordered table-striped" id="data-table" >'+
                     '<thead>'+
                       '<tr class="header">'+
