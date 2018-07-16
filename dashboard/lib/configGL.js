@@ -1,5 +1,4 @@
-var tablaDatos='<input type="search" id="buscar" placeholder="Busqueda" size="30"></input>'+
-'<div style="clear:both;">'+
+var tablaDatos='<div><input type="search" id="buscar" placeholder="Busqueda" size="30"></input></div>'+
 '<table id="main_container" class="table">'+
   '<thead>'+
     '<tr class=header>'+
