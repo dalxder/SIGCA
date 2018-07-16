@@ -1,4 +1,4 @@
-var tablaDatos='<div><input type="search" id="buscar" placeholder="Busqueda" size="30"></input>'+
+var tablaDatos='<div id="buscar" data-text="Busqueda" size="30"></input>'+
 '<table id="main_container" class="table dc-data-grid">'+
   '<thead>'+
     '<tr class=header>'+
