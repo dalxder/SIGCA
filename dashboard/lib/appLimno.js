@@ -1,4 +1,4 @@
-d3.json("datos/Puntos_Limnología.geojson").then( function(data) {
+d3.json("datos/Puntos_Limnología.geojson",function(data) {
   
   var xf = crossfilter(data.features);
   var groupname = "puntosLimno";
