@@ -7,7 +7,8 @@ d3.json("datos/Puntos_Limnología.geojson").then(function(data) {
 
 
     var chart = dc.textFilterWidget("#buscar",groupname)
-        .dimension(datatableDim);
+        .dimension(datatableDim)
+    .placeHolder('Buscar');
 
   //MAPA
  var puntosMap = xf.dimension(function(d) {
@@ -117,7 +118,7 @@ dataTable = dc.dataTable('.dc-data-grid',groupname);
   myLayout.on('stateChanged', function() {   
       mymap.map().invalidateSize();  
   });
- $('#buscar').attr('placeholder', 'Buscar');
+
   $("#buscar").on('input',function(e){
        setTimeout(function() {
         dc.redrawAll(groupname); 
