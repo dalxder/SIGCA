@@ -1,6 +1,6 @@
-var tablaDatos='<div id="buscar"></div>'+
+var tablaDatos='<div id="buscar" value=""></div>'+
 '<div style="clear:both;">'+
-'<table id="main_container" class="table dc-data-grid">'+
+'<table id="main_container" class="table">'+
   '<thead>'+
     '<tr class=header>'+
       '<th>Nombre</th>'+
