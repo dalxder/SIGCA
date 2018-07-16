@@ -1,4 +1,4 @@
-var tablaDatos='<div id="buscar" value=""></div>'+
+var tablaDatos='<div id="buscar" value="">buscar</div>'+
 '<div style="clear:both;">'+
 '<table id="main_container" class="table">'+
   '<thead>'+
